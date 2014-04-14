@@ -1,0 +1,48 @@
+#ifndef ooxmemo_idl
+#define ooxmemo_idl
+
+#define ooxmemo_idl
+
+#include <ooxfield.idl>
+#include <somcls.idl>
+
+interface dbt;
+interface dbt_iv;
+interface ooxbase;
+
+interface ooxmemo : ooxfield
+
+//---Symbol parentComment is undefined---
+{
+
+  void define(inout somInitCtrl ctrl, in string name);
+
+#ifdef __SOMIDL__
+  implementation {
+
+    releaseorder:
+                  define;
+
+    filestem = ooxmemo;
+#if 1
+    callstyle = oidl;
+#endif
+
+    long blocks;
+    dbt mdbt;
+
+    put: override;
+    get: override;
+
+    somDefaultInit: override, init;
+    somUninit: override;
+    define: init;
+
+    passthru C_ph_before =  ""
+"#include \"ooxbase.h\"";
+
+  };
+#endif /* __SOMIDL__ */
+};
+
+#endif  /* ooxmemo_idl */

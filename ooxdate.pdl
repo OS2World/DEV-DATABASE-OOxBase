@@ -1,0 +1,45 @@
+#ifndef ooxdate_idl
+#define ooxdate_idl
+
+#include "ooxfield.idl"
+#include <somcls.idl>
+
+interface ooxdate : ooxfield
+
+//---Symbol parentComment is undefined---
+{
+  void define(inout somInitCtrl ctrl, in string name);
+  short  get_month();
+  short  get_day();
+  short  get_year();
+  void   put_month(in short month);
+  void   put_day(in short day);
+  void  put_year(in short year);
+
+#ifdef __SOMIDL__
+  implementation {
+
+    releaseorder:
+    define,
+    get_month,
+    get_day,
+    get_year,
+    put_month,
+    put_day,
+    put_year;
+
+    filestem = ooxdate;
+#if 1
+    callstyle = oidl;
+#endif
+
+    passthru C_ph_before =  ""
+"#include \"ooxbase.h\"";
+    somDefaultInit: override, init;
+    somUninit: override;
+    define: init;
+  };
+#endif /* __SOMIDL__ */
+};
+
+#endif  /* date_idl */

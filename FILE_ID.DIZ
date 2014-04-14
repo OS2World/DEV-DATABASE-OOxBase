@@ -1,0 +1,24 @@
+OOxBase - The Database For REXX
+V2.10 (Beta) OOxBase is a SOM-based
+Interface DLL that allows SOM
+enabled programs to access dBase III
+and IV files.  These programs can
+control files by reading, writing
+and updating data fields directly.
+OOxBase generates dBase field names
+and values that are available
+directly to a SOM program.  The
+program can change this data and
+update dBase files directly.  Also
+database file control information is
+available to the program.  This
+information includes such data as
+last date the database was updated,
+number of records on file, field
+names, etc.  OOxBase supports MDX,
+NDX and DBT files.
+
+This beta version expires on June
+30, 1997.
+
+

@@ -1,0 +1,37 @@
+#ifndef ooxcharacter_idl
+#define ooxcharacter_idl
+
+#include "ooxfield.idl"
+#include <somcls.idl>
+
+interface ooxcharacter : ooxfield
+
+//---Symbol parentComment is undefined---
+{
+
+  void define(inout somInitCtrl ctrl, in string name, in short length);
+
+#ifdef __SOMIDL__
+  implementation {
+
+    releaseorder:
+    define;
+
+    filestem = ooxcharacter;
+#if 1
+    callstyle = oidl;
+#endif
+
+    passthru C_ph_before =  ""
+"#include \"ooxbase.h\""
+"#include \"ooxfield.ih\"";
+
+    somDefaultInit: override, init;
+    somUninit: override;
+    define: init;
+
+  };
+#endif /* __SOMIDL__ */
+};
+
+#endif  

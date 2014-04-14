@@ -1,0 +1,103 @@
+OOxBase - Object Oriented xBase Version 2.10 Beta
+
+Jan. 1, 1997
+
+
+American Coders, LTD
+P. O. Box 97462
+Raleigh, NC	27624	USA
+1-919-846-2014
+joe@usacoder.rtp.nc.us
+
+
+---
+
+Information in this and all related documents are subject to change without 
+notice.	This software, as described, is provided under a license agreement. 
+The OOxBase product and documentation may be reproduced and transmitted in 
+any form. 
+
+American Coders, Ltd is no way liable or responsible for any loss of time, 
+productivity or property associated with using this product.
+
+---
+Caveats and Warnings
+
+The is beta version will expire on June 30, 1997.
+
+Future releases. 
+
+---
+
+OOxBase is a trademark of American Coders LTD.
+
+
+All other companies, products and brand names are trademarks of theri respective
+holders.
+
+OOxBase is a dbase engine using the SOM development tool sold by IBM.	The DLL 
+was built using SOM Version 3.00, which is also in BETA. At this time SOM is 
+available free from IBM from their FTP server.
+
+---
+
+Languages supported C, C++, Visual Age COBOL, Visual Age Basic OOREXX.
+Languages tested against C, C++.
+
+---
+
+Package Inventory
+
+1.	ooxbase.dll
+2.	ooxbase.ir - SOM interface repository for OOxBase.
+3.	ooxbase.inf - viewable help file.
+4.	oox*.h - c include file
+4.1.	ooxbase.h
+4.2.	ooxfield.h
+4.3.	ooxcharacter.h
+4.4.	ooxdate.h
+4.6.	ooxlogical.h
+4.7.	ooxmemo.h
+4.8.	ooxnumeric.h
+5.	oox*.xh - c++ include file
+5.1.	ooxbase.xh
+5.2.	ooxfield.xh
+5.3.	ooxcharacter.xh
+5.4.	ooxdate.xh
+5.6.	ooxlogical.xh
+5.7.	ooxmemo.xh
+5.8.	ooxnumeric.xh
+6.	oox*.pdl - public idl files
+6.1.	ooxbase.pdl
+6.2.	ooxfield.pdl
+6.3.	ooxcharacter.pdl
+6.4.	ooxdate.pdl
+6.6.	ooxlogical.pdl
+6.7.	ooxmemo.pdl
+6.8.	ooxnumeric.pdl
+7.	Sample programs
+7.1. Sample C programs
+7.2. Sample C++ programs
+7.3. Sample Cobol programs
+7.4. Sample Basic programs
+7.5. Sample OOREXX programs.
+	
+---
+
+Classes provided:
+
+1. ooxdbf - dbase file class.
+
+2. ooxfield - field class.
+
+2.1.	ooxcharacter - character field subclass.
+
+2.2.	ooxdate - date field subclass.
+
+2.3.	ooxlogical - logical field subclass.
+
+2.4.	ooxmemo - memo field subclass.
+
+2.5.	ooxnumeric - numeric field subclass.
+
+

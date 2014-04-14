@@ -1,0 +1,40 @@
+#ifndef logical_idl
+#define logical_idl
+
+#include "ooxfield.idl"
+#include <somcls.idl>
+
+interface ooxlogical : ooxfield
+
+//---Symbol parentComment is undefined---
+{
+
+  void define(inout somInitCtrl ctrl, in string name);
+  void put_boolean(in boolean booleanv);
+  boolean get_boolean();
+
+#ifdef __SOMIDL__
+  implementation {
+
+    releaseorder:
+    define,
+    put_boolean,
+    get_boolean;
+
+    filestem = ooxlogical;
+#if 1
+    callstyle = oidl;
+#endif
+
+    passthru C_ph_before =  ""
+"#include \"ooxbase.h\"";
+
+    somDefaultInit: override, init;
+    somUninit: override;
+    define: init;
+
+  };
+#endif /* __SOMIDL__ */
+};
+
+#endif  

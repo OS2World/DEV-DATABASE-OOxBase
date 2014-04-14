@@ -1,0 +1,43 @@
+#ifndef ooxnumeric_idl
+#define ooxnumeric_idl
+
+#include <ooxfield.idl>
+#include <somcls.idl>
+
+interface ooxnumeric : ooxfield
+
+//---Symbol parentComment is undefined---
+{
+
+  void define(inout somInitCtrl ctrl, in string name, in short length, in short decimal);
+  void put_long(in long longv);
+  void put_float(in float floatv);
+  long get_long();
+  float get_float();
+
+#ifdef __SOMIDL__
+  implementation {
+
+    releaseorder:
+    define,
+    put_long,
+    put_float,
+    get_long,
+    get_float;
+
+    filestem = ooxnumeric;
+#if 1
+    callstyle = oidl;
+#endif
+
+    passthru C_ph_before =  ""
+"#include \"ooxfield.ih\"";
+
+    somDefaultInit: override, init;
+    somUninit: override;
+    define: init;
+  };
+#endif /* __SOMIDL__ */
+};
+
+#endif  

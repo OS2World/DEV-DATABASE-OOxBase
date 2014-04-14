@@ -1,0 +1,45 @@
+#ifndef ooxfield_idl
+#define ooxfield_idl
+
+#include <somobj.idl>
+#include <somcls.idl>
+
+interface ooxfield : SOMObject
+
+{
+  string get_name();
+  string get();
+  long put(in string datum);
+  char get_type();
+  short get_length();
+  short get_dec_point();
+
+#ifdef __SOMIDL__
+  implementation {
+
+    releaseorder:
+          get_type,
+          get_length,
+          get_dec_point,
+          get_name,
+          get,
+          put;
+
+    filestem = ooxfield;
+    metaclass = SOMClass;
+#if 1
+    callstyle = oidl;
+#endif
+
+
+    somDefaultInit: override, init;
+    somUninit: override;
+    define_ooxfield: init;
+
+    char *buffer;
+
+  };
+#endif /* __SOMIDL__ */
+};
+
+#endif  /* ooxfield_idl */

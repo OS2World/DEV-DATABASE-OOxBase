@@ -1,0 +1,117 @@
+#ifndef ooxbase_idl
+#define ooxbase_idl
+
+#include <somobj.idl>
+#include <somcls.idl>
+
+
+
+interface ooxfield;
+
+interface ooxdbf : SOMObject
+{
+  exception DBF_ERROR {
+         long ErrCode;
+         char Reason[80];
+       };
+  readonly attribute string error;
+  readonly attribute long current_record;
+  readonly attribute long record_count;
+  readonly attribute long field_count;
+  readonly attribute boolean deleted;
+  short Open(in string dbfname);
+  short Read();
+  short Read_prev();
+  short Write();
+  short GoTo(in long recno);
+  short Update();
+  short Delete();
+  short Undelete();
+  short Pack();
+  short Close();
+  ooxfield field(in long i);
+  ooxfield field_by_name(in string name);
+  void reset_index(in long from);
+  short find(in string key);
+  short reindex();
+  long attach_index(in string ndxdata);
+  long use_index(in string ndxdata);
+  long createindex(in string name, in string ndxdata);
+  long buildindex(in string ndxdata);
+  long add_tag(in string ndxdata, in string key);
+  long drop_tag(in string ndxdata);
+  long export(in string filename, in char delimiter);
+  long import(in string filename, in char delimiter);
+  long sort(in string filename, in string fields);
+  void usingfilename(inout somInitCtrl ctrl, in string Name);
+  void defineDBF(inout somInitCtrl ctrl, in string Name, in ooxfield field);
+  void defineDBFusing(inout somInitCtrl ctrl, in string Name, in ooxdbf usingDBF);
+  long DBFdefined();
+  long addfld(in ooxfield field);
+  long dropfld(in ooxfield field);
+  long modifyfld(in ooxfield oldfield, in ooxfield newfield);
+
+
+#ifdef __SOMIDL__
+  implementation {
+
+    dllname="ooxbase.dll";
+    releaseorder:
+                  _get_error,
+                  _get_current_record,
+                  _get_record_count,
+                  _get_field_count,
+                  _get_new_record_size,
+                  _set_new_record_size,
+                  Open,
+                  Read,
+                  Write,
+                  GoTo,
+                  Update,
+                  Close,
+                  field,
+                  field_by_name,
+                  reset_index,
+                  attach_index,
+                  use_index,
+                  createindex,
+                  buildindex,
+                  add_tag,
+                  find,
+                  reindex,
+                  Read_prev,
+                  Delete,
+                  Undelete,
+                  Pack,
+                  drop_tag,
+                  export,
+                  import,
+                  sort,
+                  usingfilename,
+                  defineDBF,
+                  defineDBFusing,
+                  DBFdefined,
+                  _get_deleted,
+                  addfld,
+                  dropfld,
+                  modifyfld;
+
+    filestem = ooxbase;
+    metaclass = SOMClass;
+#if 1
+    callstyle = oidl;
+#endif
+
+ passthru C_ih_before =  ""
+"";
+
+
+    usingfilename: init;
+    defineDBF: init;
+    defineDBFusing: init;
+
+};
+
+#endif /* __SOMIDL__ */
+};
+#endif  /* ooxbase_idl */
